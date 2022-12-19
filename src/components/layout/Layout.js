@@ -1,11 +1,15 @@
 import React from "react";
 import Header from "../header/Header";
+import { Box, Container, Card } from "@material-ui/core";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <div>
+    <Box>
       <Header />
-    </div>
+      <Container maxWidth={false}>
+        <Card>{props.children}</Card>
+      </Container>
+    </Box>
   );
 };
 

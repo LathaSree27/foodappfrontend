@@ -7,8 +7,12 @@ jest.mock("../header/Header", () => () => {
 });
 
 test("should render header and container", () => {
-  const { getByTestId } = render(<Layout />);
+  const childElement = <div data-testid="child"></div>;
+  const { getByTestId } = render(<Layout>{childElement}</Layout>);
+
   const headerComponent = getByTestId("header");
+  const childComponent = getByTestId("child");
 
   expect(headerComponent).toBeInTheDocument();
+  expect(childComponent).toBeInTheDocument();
 });
